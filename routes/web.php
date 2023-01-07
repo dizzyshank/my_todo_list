@@ -16,3 +16,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+/*フォルダ一覧画面のルーティングを記述する
+1./foldersが全てのフォルダを表す
+2.{フォルダID}により、フォルダを一意に特定
+3.その特定のフォルダのタスクを表現するとtasks*/
+
+//folders/{id}/tasksにアクセスが来たら、TaskControllerのindexアクションを呼び出す(name:tasks.index)
+Route::get('folders/{id}/tasks', 'TaskController@index')->name('tasks.index');
+
