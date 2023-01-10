@@ -26,7 +26,10 @@
           </div>
           <div class="list-group">
             @foreach($folders as $folder)
-              <a href="{{ route('tasks.index', ['id' => $folder->id]) }}" class="list-group-item">
+              <a href="{{ route('tasks.index', ['id' => $folder->id]) }}" 
+              class="list-group-item" 
+              {{ $current_folder_id === $folder->id ? 'hover' : '' }}"
+              {{ $current_folder_id === $folder->id ? 'active' : '' }}"> <!-- 色の反転処理条件を追加 -->
                 {{ $folder->title }}
               </a>
             @endforeach
