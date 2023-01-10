@@ -25,7 +25,9 @@ Route::get('/', function () {
 //folders/{id}/tasksにアクセスが来たら、TaskControllerのindexアクションを呼び出す(ルート名：tasks.index)
 Route::get('folders/{id}/tasks', 'TaskController@index')->name('tasks.index');
 
-
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/folders/create', 'FolderController@showCreateForm')->name('folders.create');
+Route::post('/folders/create', 'FolderController@create');
