@@ -7,5 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Folder extends Model
 {
+    public function tasks()
+    {
+        return $this->hasMany('App\Task'); //タスクテーブルとフォルダテーブルの関連付け
+    }
     use HasFactory;
 }
