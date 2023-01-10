@@ -9,7 +9,7 @@ class Folder extends Model
 {
     public function tasks()
     {
-        return $this->hasMany('App\Task'); //タスクテーブルとフォルダテーブルの関連付け
+        return $this->hasMany('App\Models\Task'); //タスクテーブルとフォルダテーブルの関連付け
     }
     use HasFactory;
 }

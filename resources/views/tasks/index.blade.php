@@ -51,7 +51,8 @@
     <tr>
       <th>タイトル</th>
       <th>状態</th>
-      <th>期限</th>
+      <th>開始日</th>
+      <th>終了日</th>
       <th></th>
     </tr>
     </thead>
