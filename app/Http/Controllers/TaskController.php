@@ -13,7 +13,10 @@ class TaskController extends Controller
 {
     public function index()
     {
-        //とりあえずtemplateとしている
-        return view('template');
+        $folder = Folder::all(); //全てのフォルダのデータをデータベースから取ってくる。
+        
+        return view('tasks/index', [
+            'folders' => $folders
+        ]);
     }
 }

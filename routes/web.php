@@ -22,6 +22,10 @@ Route::get('/', function () {
 2.{フォルダID}により、フォルダを一意に特定
 3.その特定のフォルダのタスクを表現するとtasks*/
 
-//folders/{id}/tasksにアクセスが来たら、TaskControllerのindexアクションを呼び出す(name:tasks.index)
+//folders/{id}/tasksにアクセスが来たら、TaskControllerのindexアクションを呼び出す(ルート名：tasks.index)
 Route::get('folders/{id}/tasks', 'TaskController@index')->name('tasks.index');
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
