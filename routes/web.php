@@ -25,7 +25,10 @@ use App\Http\Controllers\TaskController;
 3.その特定のフォルダのタスクを表現するとtasks*/
 
 //folders/{id}/tasksにアクセスが来たら、TaskControllerのindexアクションを呼び出す(ルート名：tasks.index)
-Route::get('folders/{id}/tasks', [TaskController::class, 'index'])->name('tasks.index');
+Route::get('/folders/{id}/tasks', [TaskController::class, 'index'])->name('tasks.index');
+Route::get('/folders/{id}/tasks/{task_id}/edit', [TaskController::class, 'showEditForm'])->name('tasks.edit');
+Route::post('/folders/{id}/tasks/{task_id}/edit', [TaskController::class, 'edit']);
+
 
 Auth::routes();
 
