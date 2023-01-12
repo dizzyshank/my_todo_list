@@ -49,7 +49,7 @@
             </td>
             <td>{{ $task->formatted_start_date }}</td>
             <td>{{ $task->formatted_end_date }}</td>
-            <td><a href="#">編集</a></td>
+            <td><a href="{{ route('tasks.edit', ['id' => $task->folder_id, 'task_id' => $task->id]) }}">編集</a></td>
             </tr>
           @endforeach
             </tbody>
