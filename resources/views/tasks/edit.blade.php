@@ -53,6 +53,8 @@
               </div>
               <div class="text-right">
                 <button type="submit" class="btn btn-primary">送信</button>
+              <div class="text-left">
+                <button type="button" onClick="history.back()">戻る</button>
               </div>
             </form>
           </div>

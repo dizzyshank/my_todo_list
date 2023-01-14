@@ -40,3 +40,6 @@ use App\Http\Controllers\FolderController;
 
 Route::get('folders/create', [FolderController::class, 'showCreateForm'])->name('folders.create');
 Route::post('folders/create', [FolderController::class, 'create']);
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
