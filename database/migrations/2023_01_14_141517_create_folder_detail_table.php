@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('folder_detail', function (Blueprint $table) {
             $table->increments('id');
+            $table->foreignID(folder_id)->constrained();
             $table->string('title', 30);
             $table->timestamps();
         });

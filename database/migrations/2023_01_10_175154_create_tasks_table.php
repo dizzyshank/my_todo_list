@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('tasks', function (Blueprint $table) {
             $table->increments('id');
-            $table->foreignId('folder_id')->constrained(); //外部キー制約の追加
+            $table->foreignId('folder_detail_id')->constrained(); //外部キー制約の追加
             $table->string('title', 100);
             $table->date('start_date');
             $table->date('end_date');
