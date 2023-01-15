@@ -78,4 +78,17 @@ class TaskController extends Controller
         'id' => $task->folder_id,
     ]);
     }
+    
+     /**
+     * 削除処理
+     */
+    public function destroy($task_id)
+    {
+        // tasksテーブルから指定のIDのレコード1件を取得
+        $task = Task::find($task_id);
+        // レコードを削除
+        $task->delete();
+        // 削除したら一覧画面にリダイレクト
+        return redirect()->route('tasks.index');
+    }
 }
