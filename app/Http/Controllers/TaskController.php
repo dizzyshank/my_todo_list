@@ -82,7 +82,7 @@ class TaskController extends Controller
      /**
      * 削除処理
      */
-    public function destroy($task_id)
+    public function delete($task_id)
     {
         // tasksテーブルから指定のIDのレコード1件を取得
         $task = Task::find($task_id);
