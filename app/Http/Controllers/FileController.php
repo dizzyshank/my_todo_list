@@ -11,7 +11,7 @@ class FileController extends Controller
         return view('files/create');
     }
     
-    public function create(CreateFolder $request) //バリデーションの追加
+    public function create(CreateFile $request) //バリデーションの追加
     {
         // フォルダモデルのインスタンスを作成する
         $file = new File();
