@@ -50,6 +50,12 @@
             <td>{{ $task->formatted_start_date }}</td>
             <td>{{ $task->formatted_end_date }}</td>
             <td><a href="{{ route('tasks.edit', ['id' => $task->folder_id, 'task_id' => $task->id]) }}">編集</a></td>
+            <td>
+            <form action="{{ route('task.destroy', ['task_id'=>$task->id]) }}" method="POST">
+              @csrf
+              <button type="submit" class="btn btn-danger">削除</button>
+            </form>
+            </td>
             </tr>
           @endforeach
             </tbody>
