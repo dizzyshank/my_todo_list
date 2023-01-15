@@ -23,7 +23,20 @@ class Task extends Model
             return '';
         } // 定義されていなければ空文字を返す
 
-        return self::STATUS[$status]['class'];
+        return self::STATUS[$status]['label'];
+    }
+    
+    public function getStatusClassAttribute()
+    {
+    // 状態値
+    $status = $this->attributes['status'];
+
+    // 定義されていなければ空文字を返す
+    if (!isset(self::STATUS[$status])) {
+        return '';
+    }
+
+    return self::STATUS[$status]['class'];
     }
     
     public function getFormattedStartDateAttribute()
