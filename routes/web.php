@@ -44,3 +44,8 @@ Route::post('folders/create', [FolderController::class, 'create']);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+use App\Http\Controllers\FileController;
+
+Route::get('files/create', [FileController::class, 'showCreateForm'])->name('files.create');
+Route::post('files/create', [FileController::class, 'create']);
