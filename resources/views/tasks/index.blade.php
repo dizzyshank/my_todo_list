@@ -3,7 +3,7 @@
 @section('content')
   <div class="container">
     <div class="row">
-      <div class="col col-md-4">
+      <div class="col order-1 col-md-4">
         <nav class="panel panel-default">
           <div class="panel-heading">フォルダ</div>
           <div class="panel-body">
@@ -21,7 +21,25 @@
           </div>
         </nav>
       </div>
-      <div class="column col-md-8">
+      <div class="col order-2 col-md-4">
+        <nav class="panel panel-default">
+          <div class="panel-heading">ファイル</div>
+          <div class="panel-body">
+            <a href="{{ route('files.create') }}" class="btn btn-default btn-block">
+              ファイルを追加する
+            </a>
+          </div>
+          <div class="list-group">
+            @foreach($files as $file)
+              <a href="{{ route('tasks.index', ['id' => $file->id]) }}" 
+              class="list-group-item" "{{ $current_file_id == $file->id ? 'active' : '' }}">
+                {{ $file->title }}
+              </a>
+            @endforeach
+          </div>
+        </nav>
+      </div>
+      <div class="column order-3  col-md-8">
         <div class="panel panel-default">
           <div class="panel-heading">タスク</div>
           <div class="panel-body">
