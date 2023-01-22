@@ -21,24 +21,6 @@
           </div>
         </nav>
       </div>
-      <div class="col order-2 col-md-4">
-        <nav class="panel panel-default">
-          <div class="panel-heading">ファイル</div>
-          <div class="panel-body">
-            <a href="{{ route('files.create') }}" class="btn btn-default btn-block">
-              ファイルを追加する
-            </a>
-          </div>
-          <div class="list-group">
-            @foreach($files as $file)
-              <a href="{{ route('tasks.index', ['id' => $file->id]) }}" 
-              class="list-group-item" "{{ $current_file_id == $file->id ? 'active' : '' }}">
-                {{ $file->title }}
-              </a>
-            @endforeach
-          </div>
-        </nav>
-      </div>
       <div class="column order-3  col-md-8">
         <div class="panel panel-default">
           <div class="panel-heading">タスク</div>
@@ -49,6 +31,7 @@
               </a>
             </div>
           </div>
+          <select class="form-control" name="status"></select>
         <table class="table">
           <thead>
           <tr>
@@ -69,7 +52,7 @@
             <td>{{ $task->formatted_end_date }}</td>
             <td><a href="{{ route('tasks.edit', ['id' => $task->folder_id, 'task_id' => $task->id]) }}">編集</a></td>
             <td>
-              <form action="{{ route('task.delete', ['id' => $task->folder_id, 'task_id' => $task->id]) }}" method="POST">
+              <form action="{{ route('task.delete', ['id' => $task->folder_id,'task_id' => $task->id]) }}" method="POST">
                 @csrf
                 <button type="submit" class="btn btn-danger">削除</button>
               </form>

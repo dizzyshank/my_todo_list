@@ -3,12 +3,14 @@
 <script>
   flatpickr(document.getElementById('start_date'), {
     locale: 'ja',
-    dateFormat: "Y/m/d",
+    enableTime: true,
+    dateFormat: "Y/m/d H:i",
     minDate: new Date()
   });
   flatpickr(document.getElementById('end_date'), {
     locale: 'ja',
-    dateFormat: "Y/m/d",
+    enableTime: true,
+    dateFormat: "Y/m/d H:i",
     minDate: new Date()
   });
 </script>

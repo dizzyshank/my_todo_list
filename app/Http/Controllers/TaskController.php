@@ -6,12 +6,14 @@ use App\Models\Task;
 use Illuminate\Http\Request;
 use App\Http\Requests\CreateTask;
 use App\Http\Requests\EditTask;
+use Illuminate\Support\Facades\Auth;
 
 class TaskController extends Controller
 {
     public function index(int $id)
     {
-        $folders = Folder::all(); //全てのフォルダのデータを取得
+       // ユーザーのフォルダを取得する
+        $folders = Auth::user()->folders()->get();
         
         $current_folder = Folder::find($id); // 選ばれたフォルダを取得する
         
@@ -83,13 +85,16 @@ class TaskController extends Controller
      /**
      * 削除処理
      */
-    public function delete($task_id)
+    public function delete($id, $task_id)
     {
         // tasksテーブルから指定のIDのレコード1件を取得
         $task = Task::find($task_id);
+        
         // レコードを削除
         $task->delete();
         // 削除したら一覧画面にリダイレクト
-        return redirect()->route('tasks.index');
+        return redirect()->route('tasks.index', [
+        'id' => $task->folder_id,
+    ]);
     }
 }

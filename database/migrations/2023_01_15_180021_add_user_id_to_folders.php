@@ -13,10 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('files', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('title', 30);
-            $table->timestamps();
+        Schema::table('folders', function (Blueprint $table) {
+            $table->integer('user_id')->unsigned();
+
+            // 外部キーを設定する
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
@@ -27,6 +28,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('files');
+        Schema::table('folders', function (Blueprint $table) {
+            
+        });
     }
 };
