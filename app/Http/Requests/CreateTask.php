@@ -26,7 +26,7 @@ class CreateTask extends FormRequest
         return [
             'title' => 'required|max:100',
             'start_date' => 'required|date|after_or_equal:today',
-            'end_date' => 'required|date|after_or_equal:today',
+            'end_date' => 'required|date|after:start_date',
         ];
     }
     
@@ -43,7 +43,7 @@ class CreateTask extends FormRequest
     {
         return [
             'start_date.after_or_equal' => ':attribute には今日以降の日付を入力してください。',
-            'end_date.after_or_equal' => ':attribute には今日以降の日付を入力してください。',
+            'end_date.after' => ':attribute には開始日以降の日付を入力してください。',
         ];
     }
 }
